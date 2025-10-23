@@ -2,14 +2,15 @@ import math
 import sys
 
 def function(x):
-   return x**3 + 4 * x**2 - 10
+    t = math.sqrt(x * x - 1)
+    return x * math.log(t + x) - t - 0.5 * x
 
-a = float(input("隔根上限 ="))
-b = float(input("隔根下限 ="))
-eps = float(input("绝对误差限 ="))
+a = 2
+b = 2.5
+eps = 1e-6
+k = 0
 
-number_of_significant_figures = int(abs(math.log10(1 / (2 * eps)) - math.floor(math.log10(abs(a))) + 1))
-
+print(f"k = {k}     x_{k} = {a}")
 
 while abs(a - b) > eps:
     midpoint = (b + a) / 2
@@ -21,5 +22,6 @@ while abs(a - b) > eps:
     else:
         sys.exit("隔根区间非法，不可求值")
 
-result = format((a + b) / 2, f'.{number_of_significant_figures}g')
-print(f"二分法迭代值 = {result}")
+    k = k + 1
+    print(f"k = {k}     x_{k} = {midpoint}")
+
