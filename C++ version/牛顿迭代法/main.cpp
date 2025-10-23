@@ -35,8 +35,8 @@ examine_derivative(double a , double b){
 
 
 int main(){
-
-    // #ifdef _WIN32
+            /*如果用的Clion终端输出有中文乱码的就在下面两个命令里挑一个解注释*/
+    // #ifdef _WIN32                            
     //     system("chcp 65001 >nul");
     // #endif
 
